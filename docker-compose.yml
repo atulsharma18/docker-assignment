@@ -1,9 +1,9 @@
 version: '3.8'
 services:
   web:
-    build: .
+    image: atulsharma18/docker-assignment-web:latest
     ports:
-      - "8080:8080"
+      - "8083:8080"
     depends_on:
       - mysql
     environment:
@@ -20,3 +20,9 @@ services:
       MYSQL_PASSWORD: password
     ports:
       - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
+
